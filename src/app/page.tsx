@@ -28,6 +28,9 @@ const Home = () => {
   const page2Part1Ref = useRef<HTMLDivElement>(null);
   const page2Part2Ref = useRef<HTMLDivElement>(null);
   const page5h2Ref = useRef<HTMLHeadingElement>(null);
+  const page5img1Ref = useRef<HTMLImageElement>(null);
+  const page5img2Ref = useRef<HTMLImageElement>(null);
+  const page5img3Ref = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     let locoScroll: any = null;
@@ -178,6 +181,68 @@ const Home = () => {
             duration: .1,
           });
         }
+        // GSAP Animation for the page 5 heading
+        if (page5h2Ref.current) {
+          gsap.from(page5h2Ref.current, {
+            scale: 1.5,
+            scrollTrigger: {
+              trigger: page5h2Ref.current,
+              scroller: mainRef.current,
+              start: "top 98%",
+              end: "bottom 50%",
+              scrub: .5,
+            },
+            xPercent: -100,
+            duration: .3,
+          });
+        }  
+
+        // GSAP Animation for the page 5 bottle image1
+        if (page5img1Ref.current) {
+          gsap.from(page5img1Ref.current, {
+            scrollTrigger: {
+              trigger: page5img1Ref.current,
+              scroller: mainRef.current,
+              start: "top 85%",
+              end: "bottom 45%",
+              scrub: .7,
+            },
+            yPercent: -20,
+            xPercent: 20,
+            duration: .8,
+          });
+        }
+        // GSAP Animation for the page 5 bottle image2
+        if (page5img2Ref.current) {
+          gsap.from(page5img2Ref.current, {
+            scrollTrigger: {
+              trigger: page5img2Ref.current,
+              scroller: mainRef.current,
+              start: "top 85%",
+              end: "bottom 45%",
+              scrub: .8,
+            },
+            yPercent: -30,
+            xPercent: 60,
+            duration: .6,
+          });
+        }
+        // GSAP Animation for the page 5 bottle image3
+        if (page5img3Ref.current) {
+          gsap.from(page5img3Ref.current, {
+            scrollTrigger: {
+              trigger: page5img3Ref.current,
+              scroller: mainRef.current,
+              start: "top 85%",
+              end: "bottom 45%",
+              scrub: .9,
+            },
+            yPercent: -40,
+            xPercent: 110,
+            duration: .4,
+          });
+        }
+
 
         // GSAP Animation for the button in page 6
         if (page6ButtonRef.current) {
@@ -192,37 +257,7 @@ const Home = () => {
           });
         }
 
-        // Animate 'year round' to move left and stop below 'Legacy of Flavours'
-        if (page5H1Ref.current && page5h2Ref.current && mainRef.current) {
-          // Get the bounding rects for both elements
-          const h1 = page5H1Ref.current;
-          const h2 = page5h2Ref.current;
-          // Use GSAP to animate h1 to the position below h2
-          gsap.to(h1, {
-            x: () => {
-              // Calculate horizontal shift: align left edge of h2
-              const h1Rect = h1.getBoundingClientRect();
-              const h2Rect = h2.getBoundingClientRect();
-              return h2Rect.left - h1Rect.left;
-            },
-            y: () => {
-              // Calculate vertical shift: place just below h2
-              const h1Rect = h1.getBoundingClientRect();
-              const h2Rect = h2.getBoundingClientRect();
-              return h2Rect.bottom - h1Rect.top + 13; // 13px gap
-            },
-            scrollTrigger: {
-              trigger: h2,
-              scroller: mainRef.current,
-              start: 'top 40%', // When h2 hits center, start animating h1
-              end: '+=100', // Animate over 100px scroll
-              scrub: 1,
-              pin: false,
-              // markers: true, // Uncomment for debugging
-            },
-            ease: 'power1.inOut',
-          });
-        }
+       
       }
     });}, []) // <-- Add dependency array to run only once
 
@@ -350,16 +385,16 @@ const Home = () => {
               <h6 style={{ fontFamily: dosis.style.fontFamily }}>6-PACK</h6>
             </div>
             <div id="page5_bottel">
-              <img id="image22" src="/covent.png"  alt="" />
+              <img id="image22" src="/covent.png" ref={page5img1Ref} alt="" />
               <h4 style={{ fontFamily: dosis.style.fontFamily }}>22 oz Bottles</h4>
               <h6 style={{ fontFamily: dosis.style.fontFamily }}>6-PACK</h6>
             </div>
             <div id="page5_bottel">
-              <img id="image44" src="/westminister.png" alt=""  />
+              <img id="image44" src="/westminister.png"  ref={page5img2Ref} alt=""  />
               <h4 style={{ fontFamily: dosis.style.fontFamily }}>21 oz Bottles</h4>
             </div>
             <div id="page5_bottel">
-              <img id="image55" src="/hyde.png" alt=""  />
+              <img id="image55" src="/hyde.png" ref={page5img3Ref} alt=""  />
               <h4 style={{ fontFamily: dosis.style.fontFamily }}>33 oz Bottles</h4>
             </div>
           </div>

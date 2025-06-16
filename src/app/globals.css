@@ -261,14 +261,14 @@ html, body {
     font-weight: 500;
     font-family: 'Anton', sans-serif;
     text-transform: uppercase;
-    background: url(/img/texture.png);
+    background: url('/texture.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-color: rgb(177, 29, 29);
+    background-color: rgb(189, 11, 11);
 }
 #page3_text {
     display: flex;
@@ -423,9 +423,9 @@ html, body {
     width: 30vw;
     text-transform: uppercase;
     font-family: 'Anton',sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 6.5vw;
-    background: url(/img/texture.png);
+    background: url('/texture.png');
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -460,19 +460,21 @@ html, body {
     font-family: Gilroy;
 }
 #page5_h2 {
-    width: 25vw;
+    width: 27vw;
     height: 79vh;
 }
 #page5_h2 h2 {
     align-items: center;
+    justify-content: center;
     width: 20vw;
     height: 35vh;
-    font-size: 5vw;
+    font-size: 5.4vw;
     line-height: 12vh;
-    font-weight: 200;
+    font-weight: 550;
     font-family: 'Anton', sans-serif;
     text-transform: uppercase;
     margin-top: 140px;
+    margin-left: 30px;
     word-spacing: 2vmax;
     background: url('/texture.png');
     background-position: top;
@@ -481,7 +483,7 @@ html, body {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-color: black;
+    background-color: rgb(189, 11, 11);;
     -webkit-font-smoothing: antialiased;
 }
 #page5_bottel img {
