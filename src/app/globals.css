@@ -78,7 +78,8 @@ html, body {
     position: absolute;
     z-index: 1;
     gap: 2vmax;
-    border-right: 2px solid rgb(43, 42, 42);
+
+  
 }
 
 /* Bottle Image */
@@ -408,7 +409,7 @@ html, body {
 
 #page5 {
     width: 100vw;
-    height: 110vh;
+    height: 100vh;
     padding: 0 0 0 0;
     display: flex;
     justify-content: flex-start;
@@ -416,15 +417,16 @@ html, body {
     flex-direction: column;
 }
 #page5 h5 {
-    font-size: 2.5vmax;
+    margin-top: 40px;
+    font-size: 4.5vmax;
     font-family: Gilroy;
 }
 #page5 h1 {
-    width: 30vw;
+    width: 25vw;
     text-transform: uppercase;
     font-family: 'Anton',sans-serif;
     font-weight: 500;
-    font-size: 6.5vw;
+    font-size: 5.5vw;
     background: url('/texture.png');
     background-position: top;
     background-repeat: no-repeat;
@@ -439,7 +441,7 @@ html, body {
 
 #page5_image_box {
     width: 100vw;
-    height: 80vh;
+    height: 40vh;
     padding: 0 3vw 0 5vw;
     display: flex;
     align-items: center;
@@ -460,20 +462,18 @@ html, body {
     font-family: Gilroy;
 }
 #page5_h2 {
-    width: 27vw;
+    width: 25vw;
     height: 79vh;
 }
 #page5_h2 h2 {
     align-items: center;
     justify-content: center;
-    width: 20vw;
-    height: 35vh;
-    font-size: 5.4vw;
+    font-size: 6vw;
     line-height: 12vh;
-    font-weight: 550;
+    font-weight: 500;
     font-family: 'Anton', sans-serif;
     text-transform: uppercase;
-    margin-top: 140px;
+    margin-top: 110px;
     margin-left: 30px;
     word-spacing: 2vmax;
     background: url('/texture.png');
@@ -483,7 +483,7 @@ html, body {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-color: rgb(189, 11, 11);;
+    background-color: rgb(189, 11, 11);
     -webkit-font-smoothing: antialiased;
 }
 #page5_bottel img {
@@ -520,8 +520,8 @@ html, body {
 
 #page6 {
     width: 100vw;
-    height: 90vh;
-    padding: 0 0vw 0 9vw;
+    height: 80vh;
+    padding: 0 5vw 0 9vw;
     display: flex;
     gap: 30px;
 }

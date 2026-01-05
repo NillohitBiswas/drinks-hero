@@ -1,12 +1,13 @@
 'use client';
 
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef,useState } from 'react';
 import Head from 'next/head'; // Keep Head here for now as we migrate page content
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { Anton, Dancing_Script, Dosis } from 'next/font/google';
-// Remove top-level import for LocomotiveScroll
+import Image from 'next/image'; // Import Image component
+import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,6 +32,13 @@ const Home = () => {
   const page5img1Ref = useRef<HTMLImageElement>(null);
   const page5img2Ref = useRef<HTMLImageElement>(null);
   const page5img3Ref = useRef<HTMLImageElement>(null);
+  const page3TitleRef = useRef<HTMLHeadingElement>(null);
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for hamburger menu
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   useEffect(() => {
     let locoScroll: any = null;
@@ -98,13 +106,13 @@ const Home = () => {
               trigger: page5H1Ref.current,
               scroller: mainRef.current,
               start: "top 70%",
-              end: "+=80%",
+              end: "+=56%",
               scrub: .1,
               pin: true,
               
             },
             xPercent: -55,
-            yPercent: 4,
+            yPercent: -12,
             duration: 1,
           });
         }
@@ -172,8 +180,8 @@ const Home = () => {
               trigger: page2Part2Ref.current,
               scroller: mainRef.current,
               start: "top 40%",
-              end: "top 95%",
-              scrub: 1,
+              end: "top 100%",
+              scrub: 2,
               pin: true,
             },
             yPercent: 40,
@@ -181,6 +189,21 @@ const Home = () => {
             duration: .1,
           });
         }
+        // GSAP Animation for the page 3 title
+        if (page3TitleRef.current) {
+          gsap.from(page3TitleRef.current, {
+            scrollTrigger: {
+              trigger: page3TitleRef.current,
+              scroller: mainRef.current,
+              start: "top 120%",
+              end: "bottom 50%",
+              scrub: 1,
+            },
+            xPercent: -100,
+            duration: .3,
+          });
+        }
+
         // GSAP Animation for the page 5 heading
         if (page5h2Ref.current) {
           gsap.from(page5h2Ref.current, {
@@ -188,8 +211,8 @@ const Home = () => {
             scrollTrigger: {
               trigger: page5h2Ref.current,
               scroller: mainRef.current,
-              start: "top 98%",
-              end: "bottom 50%",
+              start: "top 110%",
+              end: "bottom 65%",
               scrub: .5,
             },
             xPercent: -100,
@@ -203,12 +226,12 @@ const Home = () => {
             scrollTrigger: {
               trigger: page5img1Ref.current,
               scroller: mainRef.current,
-              start: "top 85%",
+              start: "top 75%",
               end: "bottom 45%",
               scrub: .7,
             },
-            yPercent: -20,
-            xPercent: 20,
+            yPercent: -24,
+            xPercent: 24,
             duration: .8,
           });
         }
@@ -218,12 +241,12 @@ const Home = () => {
             scrollTrigger: {
               trigger: page5img2Ref.current,
               scroller: mainRef.current,
-              start: "top 85%",
+              start: "top 75%",
               end: "bottom 45%",
               scrub: .8,
             },
-            yPercent: -30,
-            xPercent: 60,
+            yPercent: -36,
+            xPercent: 66,
             duration: .6,
           });
         }
@@ -233,12 +256,12 @@ const Home = () => {
             scrollTrigger: {
               trigger: page5img3Ref.current,
               scroller: mainRef.current,
-              start: "top 85%",
+              start: "top 75%",
               end: "bottom 45%",
               scrub: .9,
             },
-            yPercent: -40,
-            xPercent: 110,
+            yPercent: -50,
+            xPercent: 120,
             duration: .4,
           });
         }
@@ -268,16 +291,8 @@ const Home = () => {
         <title>Lagunitas | Technical Mickey</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
+        
 
-      <nav id="nav_top">
-        <img src="/logo.png" alt="" />
-        <button ref={navTopButtonRef}>Buy Beer</button>
-        <i className="ri-menu-line"></i>
-      </nav>
-      <nav id="nav_left">
-        <i className="ri-menu-line"></i>
-        <i className="ri-search-line"></i>
-      </nav>
       <div id="main" ref={mainRef}>
         <img id="bottle" src="/towerbridge.png" alt="" ref={bottleRef} />
 
@@ -332,7 +347,7 @@ const Home = () => {
           </div>
         </div>
         <div id="page3">
-          <h1>MounthFeels</h1>
+            <h1 ref={page3TitleRef}>MounthFeels</h1>
           <div id="page3_text">
             <div id="page3_text_part1">
               <a href="">

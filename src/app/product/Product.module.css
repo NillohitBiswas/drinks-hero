@@ -1,0 +1,241 @@
+/* Modern Product list + card styles */
+/* Product.module.css */
+
+/* 1. Define a modern color palette and sizing variables */
+.outerContainer {
+  --bg-app: #f8f9fc; /* Slightly cooler, cleaner background */
+  --bg-card: #ffffff;
+  --text-primary: #0f172a; /* Deep slate blue, richer than black */
+  --text-secondary: #475569; /* Lighter slate for subtitles */
+  --accent-color: #e11d48; /* A modern, vibrant crimson/rose */
+  --accent-glow: rgba(225, 29, 72, 0.3); /* Used for hover effects */
+  --border-light: #e2e8f0;
+
+  --radius-xl: 24px; /* Softer, modern corners */
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  /* A complex, layered shadow for deep elevation */
+  --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  /* A premium, bouncy transition easing */
+  --ease-spring: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  background-color: var(--bg-app);
+  /* Add a very subtle background pattern or gradient for stunning visual depth */
+  background-image: radial-gradient(at 0% 0%, hsla(253,16%,7%,0) 0, transparent 50%), radial-gradient(at 50% 0%, hsla(225,39%,30%,0.03) 0, transparent 50%);
+  min-height: 100vh;
+  padding: 4rem 1rem;
+}
+
+.pageWrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* 2. Header Styling with visual punch */
+.pageHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeInDown 0.8s var(--ease-spring);
+}
+
+.pageTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em; /* Tight tracking for modern feel */
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+  /* Optional: Gradient text effect for "stunning" look */
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-color) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pageSubtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* 3. The Grid Layout */
+.productsGrid {
+  display: grid;
+  /* Use auto-fit for responsive without media queries where possible */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem; /* Larger gap for generous whitespace */
+  padding: 0.5rem; /* Padding for hover overflow */
+}
+
+/* 4. The Modern Card Design */
+.productCard {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  /* Hidden overflow ensures images respect the border radius */
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Subtle glass-like border */
+  transition: all 0.4s var(--ease-spring);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  isolation: isolate; /* Creates a new stacking context */
+  height: 100%; /* Ensure cards in a row match height */
+}
+
+/* The Hover Effect - The key to "stunning" */
+.productCard:hover {
+  /* Lift up and scale slightly */
+  transform: translateY(-12px) scale(1.02);
+  /* Change shadow to a colored glow based on accent color */
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1), 0 0 30px var(--accent-glow);
+}
+
+/* Make the image clickable area full width */
+.imageContainerLink {
+    display: block;
+    width: 100%;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  /* Taller aspect ratio for a more elegant look (e.g., 3:4 or 4:5) */
+  aspect-ratio: 3 /4;
+  max-height: 260px;
+  background: #f1f5f9; /* Placeholder loading color */
+  overflow: hidden;
+}
+
+.productImage {
+  /* Ensure the image fills the .imageWrap when using Next/Image with `fill` */
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* use 'contain' if you prefer full image without cropping */
+  transition: transform 0.6s var(--ease-spring);
+}
+
+/* Slight zoom on image hover, independent of card lift */
+.productCard:hover .productImage {
+  transform: scale(1.08);
+}
+
+/* 5. Card Content Styling */
+.cardBody {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Ensures footer pushes to bottom */
+  gap: 1rem;
+  background: linear-gradient(to bottom, #ffffff, #fafafa);
+}
+
+.cardContent {
+    flex-grow: 1;
+}
+
+.titleLink {
+    text-decoration: none;
+    color: inherit;
+}
+
+.productTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+  line-height: 1.3;
+  transition: color 0.2s ease;
+}
+
+.titleLink:hover .productTitle {
+    color: var(--accent-color);
+}
+
+.productExcerpt {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  /* Optional: limit description to 2 lines with ellipsis */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+/* 6. Footer & Buttons */
+.cardFooter {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.priceBadge {
+  font-family: 'Inter', sans-serif; /* Assuming a modern font is loaded */
+  color: var(--text-primary);
+  font-weight: 800;
+  font-size: 1.125rem;
+  letter-spacing: -0.02em;
+}
+
+.viewBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 100px; /* Pill shape */
+  background-color: transparent;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s var(--ease-spring);
+  border: 1px solid var(--border-light);
+}
+
+.btnIcon {
+    transition: transform 0.3s var(--ease-spring);
+}
+
+/* Button hover state: fills with accent color */
+.viewBtn:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+/* Move the arrow icon on hover */
+.viewBtn:hover .btnIcon {
+    transform: translateX(4px);
+}
+
+/* Simple entrance animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments (mostly handled by CSS Grid auto-fit, but for smaller screens) */
+@media (max-width: 640px) {
+  .pageTitle {
+    font-size: 2.25rem;
+  }
+  .outerContainer {
+      padding: 2rem 1rem;
+  }
+}

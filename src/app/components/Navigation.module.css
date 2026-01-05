@@ -1,0 +1,103 @@
+/* Navigation.module.css */
+
+.navTop {
+  width: 100vw;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2vw;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1), opacity 0.3s;
+   
+}
+
+.hamburgerIcon {
+  display: block;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.buyBeerBtn {
+  background: #b90b0b;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.buyBeerBtn:hover {
+  background: #a00a0a;
+}
+
+.navLeft {
+   width: 5vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    gap: 2vmax;
+    border-right: 3px solid black;
+}
+
+.mobileMenu {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100vw;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 2000;
+  transition: transform 0.3s;
+  transform: translateY(-100%);
+  padding-top: 2.5rem; /* space for close button */
+}
+.mobileMenu.open {
+  display: block;
+  transform: translateY(0);
+}
+.mobileMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+.mobileMenu ul li a {
+  text-decoration: none;
+  color: #222;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.mobileMenu ul li a:hover {
+  color: #b90b0b;
+}
+
+.closeMenuBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  color: #b90b0b;
+  cursor: pointer;
+  z-index: 2100;
+  transition: color 0.2s;
+}
+.closeMenuBtn:hover {
+  color: #222;
+}
