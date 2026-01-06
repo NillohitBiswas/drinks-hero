@@ -1,10 +1,10 @@
 declare module 'locomotive-scroll' {
   export default class LocomotiveScroll {
-    constructor(options?: any);
-    on(event: string, callback: () => void): void;
+    constructor(options?: unknown);
+    on(event: string, callback: (...args: unknown[]) => void): void;
     update(): void;
-    scrollTo(target: any, options?: any): void;
+    scrollTo(target: unknown, options?: unknown): void;
     destroy(): void;
-    [key: string]: any;
+    [key: string]: unknown;
   }
 }

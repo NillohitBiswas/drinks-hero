@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './Navigation.module.css';
 import { gsap } from 'gsap';
 
@@ -26,9 +27,9 @@ const Navigation = () => {
         id="nav_top"
         className={styles.navTop}
       >
-        <a href="/" aria-label="Home" style={{ display: 'flex', alignItems: 'center' }}>
+        <Link href="/" aria-label="Home" style={{ display: 'flex', alignItems: 'center' }}>
           <Image src="/logo.png" alt="Thameside Logo" width={200} height={190} priority />
-        </a>
+        </Link>
         <button ref={navTopButtonRef} className={styles.buyBeerBtn}>Buy Beer</button>
       </nav>
       <nav id="nav_left" className={styles.navLeft}>
@@ -41,11 +42,11 @@ const Navigation = () => {
       <div className={`${styles.mobileMenu} ${isMenuOpen ? styles.open : ''}`}>
         <button className={styles.closeMenuBtn} onClick={closeMenu} aria-label="Close menu">&times;</button>
         <ul>
-          <li><a href="/" onClick={closeMenu}>Home</a></li>
-          <li><a href="/about" onClick={closeMenu}>About</a></li>
-          <li><a href="/contact" onClick={closeMenu}>Contact</a></li>
-          <li><a href="/blog" onClick={closeMenu}>Blog</a></li>
-          <li><a href="/product" onClick={closeMenu}>Products</a></li>
+          <li><Link href="/" onClick={closeMenu}>Home</Link></li>
+          <li><Link href="/about" onClick={closeMenu}>About</Link></li>
+          <li><Link href="/contact" onClick={closeMenu}>Contact</Link></li>
+          <li><Link href="/blog" onClick={closeMenu}>Blog</Link></li>
+          <li><Link href="/product" onClick={closeMenu}>Products</Link></li>
         </ul>
       </div>
     </>

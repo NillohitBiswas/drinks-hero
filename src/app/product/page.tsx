@@ -54,7 +54,7 @@ const ProductsPage = () => {
                         src={product.image}
                         alt={product.name}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, (max-width: 1280px) 33vw, 320px"
                         className={styles.productImage}
                         priority={products.indexOf(product) < 2} // Prioritize loading first few images
                         />

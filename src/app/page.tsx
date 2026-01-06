@@ -1,21 +1,19 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 'use client';
 
 
-import React, { useEffect, useRef,useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Head from 'next/head'; // Keep Head here for now as we migrate page content
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { Anton, Dancing_Script, Dosis } from 'next/font/google';
-import Image from 'next/image'; // Import Image component
-import Link from 'next/link';
+import { Anton, Dosis } from 'next/font/google';
 
 gsap.registerPlugin(ScrollTrigger);
 
 // Define Google Fonts at the module scope
-const anton = Anton({ subsets: ['latin'], weight: ['400', '400'] as any, variable: '--font-anton' });
-
-const dancingScript = Dancing_Script({ subsets: ['latin'], weight: ['400', '700'], variable: '--font-dancing-script' }); // Added 700 weight
-const dosis = Dosis({ subsets: ['latin'], weight: ['200', '400', '600', '700'], variable: '--font-dosis' });
+const anton = Anton({ subsets: ['latin'], weight: ['400'] as const, variable: '--font-anton' });
+const dosis = Dosis({ subsets: ['latin'], weight: ['200', '400', '600', '700'] as const, variable: '--font-dosis' });
 
 const Home = () => {
   const mainRef = useRef<HTMLDivElement>(null);
@@ -34,12 +32,6 @@ const Home = () => {
   const page5img3Ref = useRef<HTMLImageElement>(null);
   const page3TitleRef = useRef<HTMLHeadingElement>(null);
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for hamburger menu
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   useEffect(() => {
     let locoScroll: any = null;
 
@@ -57,12 +49,12 @@ const Home = () => {
         locoScroll!.on('scroll', () => ScrollTrigger.update());
 
         ScrollTrigger.scrollerProxy(mainRef.current, {
-          scrollTop(value) {
+          scrollTop(value: any) {
             if (typeof value === 'number') {
               return locoScroll?.scrollTo(value, { duration: 0, disableLerp: true });
             }
             // Safely access scroll position with optional chaining and type assertion
-            return (locoScroll as any).scroll.instance.scroll.y; 
+            return (locoScroll as any).scroll.instance.scroll.y;
           },
           getBoundingClientRect() {
             return {
@@ -118,7 +110,7 @@ const Home = () => {
         }
 
         // GSAP Timeline
-        let t1 = gsap.timeline();
+        const t1 = gsap.timeline();
         if (page1tagh1.current) {
           t1.from(page1tagh1.current, {
             opacity: 0,
@@ -282,8 +274,8 @@ const Home = () => {
 
        
       }
-    });}, []) // <-- Add dependency array to run only once
-
+    });
+  }, []); // <-- Add dependency array to run only once
   
   return (
     <>
@@ -327,7 +319,7 @@ const Home = () => {
               </p>
             </div>
             <h3>IBU</h3>
-            <h5>Isn\'t Reservation Units</h5>
+            <h5>{"Isn't Reservation Units"}</h5>
             <div id="box">
               <h2>51 <span>.1</span></h2>
               <p style={{ fontFamily: dosis.style.fontFamily }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis mollitia corporis facere
