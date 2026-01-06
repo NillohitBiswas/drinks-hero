@@ -2,6 +2,9 @@
   "name": "drinks-hero",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,7 +15,7 @@
     "font-awesome": "^4.7.0",
     "gsap": "^3.13.0",
     "locomotive-scroll": "^4.1.4",
-    "next": "15.3.3",
+    "next": "16.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "remixicon": "^4.6.0"
@@ -24,7 +27,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.3.3",
+    "eslint-config-next": "16.1.1",
     "typescript": "^5"
   }
 }

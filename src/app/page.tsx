@@ -5,6 +5,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Head from 'next/head'; // Keep Head here for now as we migrate page content
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { Anton, Dosis } from 'next/font/google';
@@ -286,11 +287,11 @@ const Home = () => {
         
 
       <div id="main" ref={mainRef}>
-        <img id="bottle" src="/towerbridge.png" alt="" ref={bottleRef} />
+        <Image id="bottle" src="/towerbridge.png" alt="" ref={bottleRef} width={400} height={400} />
 
         <div id="page1">
           <h1 style={{ fontFamily: anton.style.fontFamily }} ref={page1tagh1}>unlimited release</h1>
-          <img id="page1_dog_image" src="/stamp.png" alt="" ref={page1DogImageRef} />
+          <Image id="page1_dog_image" src="/stamp.png" alt="" ref={page1DogImageRef} width={220} height={220} />
         </div>
 
           <div id="page2" >
@@ -343,7 +344,7 @@ const Home = () => {
           <div id="page3_text">
             <div id="page3_text_part1">
               <a href="">
-                <img src="/banner2.png" alt="" />
+                <Image src="/banner2.png" alt="" width={600} height={300} />
               </a>
               <h5>Hear it from our beamonster jeremy marshall</h5>
             </div>
@@ -357,27 +358,27 @@ const Home = () => {
         </div>
         <div id="page4">
           <div id="page4_color1">
-            <img id="page4_color_image1" src="/Green-LSS.png" alt="" />
+            <Image id="page4_color_image1" src="/Green-LSS.png" alt="" width={300} height={300} />
             <div id="page4_color_image1_text">
               <h4 style={{ fontFamily: anton.style.fontFamily }}>tropical</h4>
               <p style={{ fontFamily: dosis.style.fontFamily }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia harum accusamus placeat distinctio iusto exercitationem labore nulla atque temporibus beatae?</p>
             </div>
           </div>
           <div id="page4_color2">
-            <img id="page4_color_image2" src="/Green-LSS.png" alt="" />
+            <Image id="page4_color_image2" src="/Green-LSS.png" alt="" width={300} height={300} />
             <div id="page4_color_image2_text">
               <h4 style={{ fontFamily: anton.style.fontFamily }}>pink</h4>
               <p style={{ fontFamily: dosis.style.fontFamily }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia harum accusamus placeat distinctio iusto exercitationem labore nulla atque temporibus beatae?</p>
             </div>
           </div>
           <div id="page4_color3">
-            <img id="page4_color_image3" src="/splat-black.png" alt="" />
+            <Image id="page4_color_image3" src="/splat-black.png" alt="" width={300} height={300} />
             <div id="page4_color_image3_text">
               <h4 style={{ fontFamily: anton.style.fontFamily }}>caramel-malt</h4>
               <p style={{ fontFamily: dosis.style.fontFamily }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia harum accusamus placeat distinctio iusto exercitationem labore nulla atque temporibus beatae?</p>
             </div>
           </div>
-          <img src="/beermug.png" alt="" id="page4_color_image4" />
+          <Image src="/beermug.png" alt="" id="page4_color_image4" width={220} height={220} />
         </div>
         <div id="page5">
           <h5 style={{ fontFamily: dosis.style.fontFamily }}>Availability</h5>
@@ -387,28 +388,28 @@ const Home = () => {
               <h2 ref={page5h2Ref}>Legacy of Flavours</h2>
             </div>
             <div id="page5_bottel">
-              <img id="image33" src="/towerbridge.png" alt=""  />
+              <Image id="image33" src="/towerbridge.png" alt="" width={240} height={360} />
               <h4 style={{ fontFamily: dosis.style.fontFamily }}>22 oz Bottles</h4>
               <h6 style={{ fontFamily: dosis.style.fontFamily }}>6-PACK</h6>
             </div>
             <div id="page5_bottel">
-              <img id="image22" src="/covent.png" ref={page5img1Ref} alt="" />
+              <Image id="image22" src="/covent.png" ref={page5img1Ref} alt="" width={240} height={360} />
               <h4 style={{ fontFamily: dosis.style.fontFamily }}>22 oz Bottles</h4>
               <h6 style={{ fontFamily: dosis.style.fontFamily }}>6-PACK</h6>
             </div>
             <div id="page5_bottel">
-              <img id="image44" src="/westminister.png"  ref={page5img2Ref} alt=""  />
+              <Image id="image44" src="/westminister.png"  ref={page5img2Ref} alt="" width={240} height={360} />
               <h4 style={{ fontFamily: dosis.style.fontFamily }}>21 oz Bottles</h4>
             </div>
             <div id="page5_bottel">
-              <img id="image55" src="/hyde.png" ref={page5img3Ref} alt=""  />
+              <Image id="image55" src="/hyde.png" ref={page5img3Ref} alt="" width={240} height={360} />
               <h4 style={{ fontFamily: dosis.style.fontFamily }}>33 oz Bottles</h4>
             </div>
           </div>
         </div>
         <div id="page6">
           <div id="page6_part1">
-            <img src="/Banner1.png" alt="" />
+            <Image src="/Banner1.png" alt="" width={800} height={400} />
           </div>
           <div id="page6_part2">
             <h5 style={{ fontFamily: dosis.style.fontFamily }}>Recipes</h5>
